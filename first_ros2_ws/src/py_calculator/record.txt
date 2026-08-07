@@ -1,0 +1,15 @@
+/tmp/pycalc-test/local/lib/python3.14/dist-packages/py_calculator/__init__.py
+/tmp/pycalc-test/local/lib/python3.14/dist-packages/py_calculator/client.py
+/tmp/pycalc-test/local/lib/python3.14/dist-packages/py_calculator/server.py
+/tmp/pycalc-test/local/lib/python3.14/dist-packages/py_calculator/py.typed
+/tmp/pycalc-test/local/lib/python3.14/dist-packages/py_calculator/__pycache__/__init__.cpython-314.pyc
+/tmp/pycalc-test/local/lib/python3.14/dist-packages/py_calculator/__pycache__/client.cpython-314.pyc
+/tmp/pycalc-test/local/lib/python3.14/dist-packages/py_calculator/__pycache__/server.cpython-314.pyc
+/tmp/pycalc-test/local/share/ament_index/resource_index/packages/py_calculator
+/tmp/pycalc-test/local/share/py_calculator/package.xml
+/tmp/pycalc-test/local/lib/python3.14/dist-packages/py_calculator-0.0.0-py3.14.egg-info/zip-safe
+/tmp/pycalc-test/local/lib/python3.14/dist-packages/py_calculator-0.0.0-py3.14.egg-info/PKG-INFO
+/tmp/pycalc-test/local/lib/python3.14/dist-packages/py_calculator-0.0.0-py3.14.egg-info/SOURCES.txt
+/tmp/pycalc-test/local/lib/python3.14/dist-packages/py_calculator-0.0.0-py3.14.egg-info/dependency_links.txt
+/tmp/pycalc-test/local/lib/python3.14/dist-packages/py_calculator-0.0.0-py3.14.egg-info/top_level.txt
+/tmp/pycalc-test/local/lib/python3.14/dist-packages/py_calculator-0.0.0-py3.14.egg-info/requires.txt

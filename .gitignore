@@ -1,0 +1,27 @@
+# ROS build files
+**/build/
+**/install/
+**/log/
+
+# Python cache
+**/__pycache__/
+*.py[cod]
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.kate-swp
+*~
+
+# ROS bags
+*.bag
+*.bag.active
+
+# Clearpath dependencies
+jackal_ws/src/jackal/
+jackal_ws/src/jackal_desktop/
+jackal_ws/src/jackal_robot/
+jackal_ws/src/jackal_simulator/
+jackal_ws/src/micro_ros_setup/
+jackal_ws/src/wireless/
