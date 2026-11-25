@@ -9,12 +9,12 @@ from sensor_msgs.msg import LaserScan
 
 class SensorPublisher(Node):
     def __init__(self):
-        super().__init__('sensor_publisher')
+        super().__init__("sensor_publisher")
 
-        self.create_subscription(Imu, '/imu/data', self.imu_cb, 10)
-        self.create_subscription(Odometry, '/odom', self.odom_cb, 10)
-        self.create_subscription(JointState, '/joint_states', self.joint_cb, 10)
-        self.create_subscription(LaserScan, '/front/scan', self.scan_cb, 10)
+        self.create_subscription(Imu, "/imu/data", self.imu_cb, 10)
+        self.create_subscription(Odometry, "/odom", self.odom_cb, 10)
+        self.create_subscription(JointState, "/joint_states", self.joint_cb, 10)
+        self.create_subscription(LaserScan, "/front/scan", self.scan_cb, 10)
 
         self.latest_scan = None
 
@@ -49,15 +49,12 @@ class SensorPublisher(Node):
             self.get_logger().info(f"Odom: x={p.x:.2f}, y={p.y:.2f}")
 
         if self.latest_joints:
-            self.get_logger().info(
-                f"Joint count: {len(self.latest_joints.name)}"
-            )
-        
+            self.get_logger().info(f"Joint count: {len(self.latest_joints.name)}")
+
         if self.latest_scan:
             min_distance = min(self.latest_scan.ranges)
-            self.get_logger().info(
-                f"Closest obstacle distance: {min_distance:.2f} m"
-            )
+            self.get_logger().info(f"Closest obstacle distance: {min_distance:.2f} m")
+
 
 def main(args=None):
     rclpy.init(args=args)
@@ -65,4 +62,3 @@ def main(args=None):
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()
-

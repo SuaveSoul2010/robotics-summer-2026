@@ -3,35 +3,26 @@ from rclpy.node import Node
 from sensor_msgs.msg import LaserScan
 from geometry_msgs.msg import Twist
 
+
 class ObstacleAvoidance(Node):
     def __init__(self):
-        super().__init__('obstacle_avoidance')
+        super().__init__("obstacle_avoidance")
 
         self.scan_sub = self.create_subscription(
-            LaserScan,
-            '/front/scan',
-            self.scan_callback,
-            10
+            LaserScan, "/front/scan", self.scan_callback, 10
         )
 
-        self.cmd_pub = self.create_publisher(
-            Twist,
-            '/cmd_vel',
-            10
-        )
+        self.cmd_pub = self.create_publisher(Twist, "/cmd_vel", 10)
 
         self.get_logger().info("Obstacle avoidance started")
 
     def scan_callback(self, msg):
         # Remove invalid readings
-        ranges = [
-            r for r in msg.ranges
-            if r > 0
-        ]
+        ranges = [r for r in msg.ranges if r > 0]
 
         if not ranges:
             return
-        
+
         closest = min(ranges)
         cmd = Twist()
 
@@ -56,5 +47,6 @@ def main(args=None):
     node.destroy_node()
     rclpy.shutdown()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

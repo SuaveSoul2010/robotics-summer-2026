@@ -6,6 +6,13 @@
 # Python cache
 **/__pycache__/
 *.py[cod]
+**/*.egg-info/
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
 
 # Editors
 .vscode/
@@ -17,6 +24,10 @@
 # ROS bags
 *.bag
 *.bag.active
+
+# Large media (videos, photos, raw recordings) and archived files
+media/
+legacy/
 
 # Clearpath dependencies
 jackal_ws/src/jackal/

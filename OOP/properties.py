@@ -1,7 +1,8 @@
 class Battery:
     def __init__(self, level):
         self.level = level
-        
+
+    # level property is switched off for now, kept for reference
     """
     @property
     def level(self):

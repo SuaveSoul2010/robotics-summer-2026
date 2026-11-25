@@ -1,0 +1,204 @@
+# All on-screen text for the two demo videos.
+
+#
+
+# How to edit
+
+# - Change any text between the quotes. Triple-quoted text ("""...""") can span several lines.
+
+# - Long text is wrapped automatically to fit its panel, so you don't need to break lines yourself.
+
+# Leave a blank line inside a caption to start a new paragraph.
+
+# - Then rebuild with:  python3 videos/build_jackal.py   and/or   python3 videos/build_terrasentia.py
+
+# The build prints a warning if any text is too long for its panel.
+
+#
+
+# Text that is baked into the source footage and can't be changed here:
+
+# - the green "GOAL" marker on the Jackal overhead view and A* panels
+
+# - the "Camera" and "RViz – occupancy grid" labels and the clock inside the TerraSentia side-by-side clips
+
+[style]
+speed_badge = "{speed}× speed"   # {speed} becomes 1.5, 4, 8 ...
+
+# ============================================================================================
+
+# Jackal simulation video  (media/videos/jackal_gazebo_demo.mp4)
+
+# ============================================================================================
+
+[jackal.title_card]
+title = "Clearpath Jackal in Gazebo"
+subtitle = "ROS 2 Foxy simulation work from summer 2026"
+
+[jackal.obstacle_avoidance]
+card_title = "Obstacle avoidance"
+card_subtitle = "A simple reactive controller that steers with the lidar"
+heading = "Obstacle avoidance"
+subheading = "jackal_autonomy  ·  obstacle_avoidance and lane_detection"
+caption = """
+The robot drives straight ahead at 1 m/s while monitoring its lidar. When an obstacle comes
+within a meter, it stops and turns left until the way ahead is clear, then continues forward.
+Near a wall, it can end up turning in place for a while, so that part is sped up. Meanwhile,
+lane_detection converts the front camera image to black and white, clearly separating the
+white open ground from the surroundings.
+"""
+label_chase = "Gazebo, following the robot"
+label_overhead = "Overhead camera"
+label_front = "Front camera"
+label_lane = "Lane detection output"
+
+[jackal.navigation]
+card_title = "Mapping, planning and navigation"
+card_subtitle = "Three goals, from a straightforward run to one the robot can't reach"
+label_overhead = "Overhead camera and driven path"
+label_map = "Live occupancy map"
+label_astar = "A* plan (blue) and driven path (pink)"
+label_chase = "Gazebo, following the robot"
+label_front = "Front camera"
+
+[jackal.navigation.goal1]
+heading = "Goal 1  ·  Up the corridor"
+caption = """
+The first goal is straight down the corridor. As the Jackal drives, occupancy_mapper converts
+each lidar scan into the live map in the middle, with open floor in white and walls in black.
+Before setting off, astar_planner plans a route to the goal (blue), while the pink line traces
+the robot's actual path. The robot makes it all the way down the corridor and stops inside
+the 30 cm goal circle.
+"""
+banner = "Goal reached in 32 s"
+
+[jackal.navigation.goal2]
+heading = "Goal 2  ·  Around the bend"
+caption = """
+The second goal is behind the robot and around a bend, so the Jackal must turn around first.
+The navigator heads toward the goal and turns away whenever the map shows a wall ahead,
+which happens a few times as it rounds the corner. After that, it follows the corridor all
+the way to the goal. The slow stretch in the middle is sped up.
+"""
+banner = "Goal reached in 73 s"
+
+[jackal.navigation.goal3]
+heading = "Goal 3  ·  Past the wall"
+caption = """
+The third goal is just beyond the end of the lower corridor wall. Since the navigator only
+heads straight toward the goal and turns away when it detects something ahead, the robot
+keeps running into the same wall, inching along it without ever getting past. The A* planner
+was still searching when the run ended. Reaching this goal would require a controller that
+follows the planned path rather than simply steering toward the goal.
+"""
+banner = "Goal not reached"
+label_astar = "A* planner (no plan yet)"
+astar_placeholder = "No A* plan yet. The planner was still searching when the run ended."
+
+[jackal.end_card]
+title = "jackal_ws"
+subtitle = "Built with jackal_autonomy, occupancy_grid_mapping and jackal_gazebo"
+
+# ============================================================================================
+
+# TerraSentia video  (media/videos/terrasentia_demo.mp4)
+
+# ============================================================================================
+
+[terrasentia.title_card]
+title = "TerraSentia in the lab"
+subtitle = "Depth-camera mapping and navigation on the EarthSense TerraSentia robot, summer 2026"
+
+[terrasentia.meet_the_robot]
+heading = "Meet the robot"
+caption_front = """
+This is the TerraSentia robot used for all the experiments in this video. As an agricultural
+robot, TerraSentia is designed to navigate rows of crops. It runs ROS 1 on an onboard computer,
+while RViz on a laptop provides a remote view of the robot's state and sensor data over the lab
+network. All processing is performed onboard, with relevant ROS topics transmitted to the
+laptop via SSH. The live camera feed is omitted to avoid the latency and bandwidth overhead
+of streaming video remotely.
+"""
+caption_camera = """
+An Intel RealSense depth camera mounted at the front is the only sensor used in these
+experiments. It measures the distance to objects at each pixel in the image. Both the obstacle
+avoider and the occupancy mapper use this depth data.
+"""
+caption_top = """
+Viewed from above, a plywood deck mounted on the base carries a battery holder and GPS module.
+"""
+caption_lab_1 = "All of the runs took place on the lab floor, where chairs, cables and desks served as obstacles."
+
+[terrasentia.obstacle_avoidance]
+card_title = "Obstacle avoidance"
+card_subtitle = "An early test with the depth camera"
+heading = "Obstacle avoidance with depth"
+caption = """
+depth_roomba is the robot's simplest autonomous navigation program. It averages the depth
+measurements across a central region of each image. If the average distance falls below one
+meter, the robot stops and turns in place to avoid the nearby obstacle. Otherwise, it continues
+forward at 0.25 m/s.
+
+In this early test, recorded on August 6, the robot approaches the person filming, detects
+their proximity and turns before making contact. It then resumes moving forward and continues
+exploring the lab.
+"""
+label_video = "Phone camera"
+label_camera = "Intel RealSense depth camera"
+
+[terrasentia.mapping]
+card_title = "Mapping and path planning"
+card_subtitle = "Click a goal in RViz, plan a route with Dijkstra and follow it"
+map_heading = "Building the map"
+map_caption = """
+terrasentia_occupancy_mapper projects each depth image onto the floor and updates a 20 by 20
+meter grid with 5 cm cells, marking free floor in light gray and obstacles in black. The cyan
+dots come from grid_to_graph, which connects free cells into the graph searched by the planner.
+"""
+map_label = "RViz, occupancy grid from one session"
+
+[terrasentia.pipeline]
+title = "How the programs connect"
+steps = [
+"RealSense depth image",
+"terrasentia_occupancy_mapper",
+"dijkstra_planner + goal from RViz",
+"dijkstra_controller",
+"wheel commands on /robot/cmd_vel",
+]
+
+[terrasentia.run1]
+heading = "Turning to face the path"
+caption = """
+A goal has just been selected in RViz using the 2D Nav Goal tool, and dijkstra_planner has
+found the shortest route to it through the occupancy grid. dijkstra_controller steers toward
+a point 40 cm ahead along that path, reducing its forward speed as the heading error grows.
+Since the path initially leads off to the side, the robot first turns almost in place, then
+speeds up as it lines up with the path. The arrow in RViz shows its odometry.
+"""
+
+[terrasentia.run2]
+heading = "One goal after another"
+caption = """
+Each new click in RViz sends a new goal. The planner calculates a new route from the robot's
+current position, and the controller replaces the old path with the new one. During this
+session, the terminal logged a series of short paths, each with three to nine waypoints. The
+robot stopped within 20 cm of each goal.
+"""
+
+[terrasentia.run3]
+heading = "Heading across the room"
+caption = """
+Here the robot sets off toward a goal near the person filming, while the map on the right
+fills in as the depth camera detects new parts of the floor."""
+
+[terrasentia.run4]
+heading = "A longer run"
+caption = """
+For the final run, the RViz view is zoomed in on the map, making it easier to follow the robot's
+arrow as it drives and turns across the lab floor. 
+"""
+
+[terrasentia.end_card]
+title = "terrasentia_ws"
+subtitle = "Built with depth_roomba and terrasentia_occupancy_mapper"
