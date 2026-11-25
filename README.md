@@ -28,3 +28,4 @@ More in [`terrasentia_ws/`](terrasentia_ws).
 | [`first_ros2_ws/`](first_ros2_ws) | ROS 2 workspace from learning the basics (publishers, subscribers and services) |
 | [`jackal_ws/`](jackal_ws) | ROS 2 Foxy workspace for the Jackal simulation, along with its Dockerfile |
 | [`terrasentia_ws/`](terrasentia_ws) | ROS 1 workspace that ran on the TerraSentia robot |
+| [`videos/`](videos) | Demo videos of the Jackal simulation and the TerraSentia robot |

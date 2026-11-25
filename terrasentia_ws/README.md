@@ -51,6 +51,6 @@ rosrun image_view image_view image:=/camera/color/image_raw _image_transport:=co
 
 ## What the demo shows
 
-The demo video (`media/videos/terrasentia_demo.mp4`) starts with an early test of the obstacle avoider, then shows several runs of the mapping and planning programs. Each run is a phone recording of the robot placed side by side with the RViz screen at the same moment, so the robot's movement on camera is synced with the map.
+The [demo video](../videos/terrasentia_demo.mp4) starts with an early test of the obstacle avoider, then shows several runs of the mapping and planning programs. Each run is a phone recording of the robot placed side by side with the RViz screen at the same moment, so the robot's movement on camera is synced with the map.
 
 ![A phone recording of the robot next to the RViz map at the same moment](docs/images/side_by_side_run.jpg)

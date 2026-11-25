@@ -83,6 +83,6 @@ Further commands, including the camera viewer, are in [`ros2_commands.sh`](ros2_
 
 ## What the demo shows
 
-The demo video (`media/videos/jackal_gazebo_demo.mp4`) covers two experiments. In the first, the obstacle avoider drives around the open part of the track while lane detection runs on the front camera. In the second, the mapper, the A* planner and the navigator run together on three goals of increasing difficulty. The first two goals are reached, while the third sits behind a wall that the navigator cannot find its way around.
+The [demo video](../videos/jackal_gazebo_demo.mp4) covers two experiments. In the first, the obstacle avoider drives around the open part of the track while lane detection runs on the front camera. In the second, the mapper, the A* planner and the navigator run together on three goals of increasing difficulty. The first two goals are reached, while the third sits behind a wall that the navigator cannot find its way around.
 
 ![Goal 1 reached, with the overhead view, the live map and the A* plan](docs/images/goal1_reached.jpg)
