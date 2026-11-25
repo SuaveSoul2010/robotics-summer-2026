@@ -28,6 +28,7 @@ coverage.xml
 # Large media (videos, photos, raw recordings) and archived files
 media/
 legacy/
+videos_setup/
 
 # Clearpath dependencies
 jackal_ws/src/jackal/

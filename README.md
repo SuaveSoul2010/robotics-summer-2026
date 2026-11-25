@@ -2,7 +2,7 @@
 
 This is the robotics work I did over the summer of 2026.
 
-I started off by learning the basics of ROS 2 and object-oriented programming, then I worked on simulation with Clearpath Robotics' Jackal robot. After that, I moved on to real hardware, using a depth camera on the EarthSense TerraSentia robot to build maps of the lab and navigate to goals.
+I started off by refreshing the basics of ROS 2 and object-oriented programming, then I worked on simulation with Clearpath Robotics' Jackal robot. After that, I moved on to real hardware, using a depth camera on the EarthSense TerraSentia robot to build maps of the lab and navigate to goals.
 
 ## Jackal simulation
 
@@ -14,7 +14,7 @@ More in [`jackal_ws/`](jackal_ws).
 
 ## TerraSentia in the lab
 
-The TerraSentia work runs on the real robot. An Intel RealSense depth camera is its only sensor here. The depth images are used for a simple obstacle avoider, and to build an occupancy grid that a Dijkstra planner searches for routes to goals clicked in RViz.
+The TerraSentia work runs on the real robot. An Intel RealSense depth camera is its only sensor. The depth images are used for a simple obstacle avoider, and to build an occupancy grid that a Dijkstra planner searches for routes to goals selected in RViz.
 
 ![The TerraSentia robot on the lab floor](terrasentia_ws/docs/images/robot_in_lab.jpg)
 
@@ -28,8 +28,3 @@ More in [`terrasentia_ws/`](terrasentia_ws).
 | [`first_ros2_ws/`](first_ros2_ws) | ROS 2 workspace from learning the basics (publishers, subscribers and services) |
 | [`jackal_ws/`](jackal_ws) | ROS 2 Foxy workspace for the Jackal simulation, along with its Dockerfile |
 | [`terrasentia_ws/`](terrasentia_ws) | ROS 1 workspace that ran on the TerraSentia robot |
-| [`videos/`](videos) | Scripts that build the demo videos, and `video_text.toml` with all of their on-screen text |
-| `media/` | Demo videos, photos and the recordings they were made from |
-| `legacy/` | Older photos and recordings that aren't used anywhere, kept for reference |
-
-`media/` and `legacy/` hold several gigabytes of video, so they are kept out of git. The two finished demo videos are `media/videos/jackal_gazebo_demo.mp4` and `media/videos/terrasentia_demo.mp4`.
